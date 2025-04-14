@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        pre {
+        font-family: monospace;
+        font-size: 16px;
+    }
+    </style>
+
+</head>
+<body>
+
+    <pre id="center"></pre>
+    <pre id="diamond"></pre>
+
+
+
+    <script>
+
+        // let output = 0; /* for문 밖의 변수 설정, 더해진 값을 저장하기 위한 변수 저장 */
+        // for (let i = 1; i<=100; i++) { /* 반복을 몇 번 할꺼냐 */
+        //     output = output + i; /* output += i */ /* 첫 번째 1, 두 번째 3 */
+        // }
+        // console.log(`1~100까지 숫자를 모두 더하면 ${output}입니다`) /* 변수 표현 ${} */
+
+
+        // const todos = ['우유 구매', '업무 메일 확인하기','필라테스 수업']
+
+        // for (let i = 0; i < todos.length; i++) {
+        //     console.log(`${i+1}번째 할 일:${todos[i]}`)
+        // }
+
+
+        // for (let i = todos.length-1; i >= 0; i--) {
+        //     console.log(`${i+1}번째 할 일:${todos[i]}`)
+        // }
+
+
+        // /* 짝수만 더하기 */
+        // let output2 = 0; /* let 변수는 계속 살아있다(글로벌 변수) */
+        // for ( let i = 1; i <= 10; i++ ) {
+            
+        //     if ( i % 2 === 1 ) {
+        //         continue; /* 다음 반복으로 넘어가기 */
+        //     }
+
+        //     output2 += i; /* output2 = output2 + i; */
+        // }
+        // // alert(output2);
+
+
+
+
+
+
+
+
+        /* 왼쪽 피라미드 별 만들기 */
+        let output3 = ''; /* 빈 공간이 된다 */
+
+        for ( let i = 1; i < 10; i++) {
+
+            for ( let j = 0; j < i; j++) {
+                output3 += '*'
+            }
+
+            output3 += '\n' /* 줄바꿈 해줘 */
+        }
+
+        console.log(output3);
+
+
+
+
+
+
+
+        
+
+
+        /* 중앙 피라미드 만들기 */
+
+        let output4 = '';
+
+        for ( let i = 1; i < 15; i++) { /* i = 1~14 */
+            
+            for ( let j = 15; j > i; j-- ) { /* j = 15~1 */
+                output4 += '0' /* output4에 j+1하고 대입해줘, output4 = output4 + '0' */
+            }
+
+            for ( let k = 0; k < 2 * i - 1; k++ ) { /* i가 짝수 일 때 보다는 작다 >> k는 홀수이다 (k < 0, 2, 4, 6, 8, ...) */
+                output4 += '*' /* 홀수 개수만큼 별 만들어줘 */
+            }
+
+            output4 += '\n' /* i 숫자만큼 줄 바꿔줘 */
+
+        }
+
+        console.log(output4)
+
+
+
+
+
+
+
+
+
+
+
+        /* 마름모 피라미드 만들기 */
+
+        let output5 = ''
+        const size = 5
+
+        /* 윗 피라미드 부분 i : 1~size */
+        for ( let i = 1; i <= size; i++) { /* i는 1부터 시작해서 size(5) 와 같아질 때 까지 1씩 늘어가며 반복한다. i = {1,2,3,4,5} */
+
+            /* 공백 : size - i */
+            for ( let j = 0; j < size - i; j++) { /* j는 0부터 시작해서 size-i보다 적을 때 까지 1씩 늘어가며 반복한다. j = {0,1,2,3}*/
+                output5 += '0' /* output = output + '0', 반복 횟수만큼 공백 추가한 뒤에 output5에다 모아줘 */
+            }
+
+            /* 별 : 2*i - 1 */
+            for ( let k = 0; k < 2*i - 1; k++ ) {
+                output5 += '*'
+            }
+
+            output5 += '\n'
+        }
+
+
+        /* 아래 피라미드 부분 ( i : size-i ~ 1) */
+        for ( let i = size - 1; i >= 1; i--) { /* i는 4부터 ~ 1까지, i = {4,3,2,1} */
+
+            /* 공백 : size - 1 */
+            for ( let j = 0; j < size - i; j++ ) {
+                output5 += '0'
+            }
+
+            /* 별 : 2*i - 1 */
+            for ( let k = 0; k < 2*i -1; k++) {
+                output5 += '*'
+            }
+
+            output5 += '\n'            
+        }
+
+        console.log(output5);
+
+
+        document.getElementById('center').innerHTML = output4;
+        document.getElementById('diamond').innerHTML = output5;
+
+
+    </script>
+
+
+
+    
+</body>
+</html>
